@@ -1,0 +1,8 @@
+F:\code\test\testPLC\obj\Debug\ResolveAssemblyReference.cache
+F:\code\test\testPLC\obj\Debug\testPLC.Form1.resources
+F:\code\test\testPLC\obj\Debug\testPLC.Properties.Resources.resources
+F:\code\test\testPLC\obj\Debug\testPLC.csproj.GenerateResource.Cache
+F:\code\test\testPLC\bin\Debug\testPLC.exe
+F:\code\test\testPLC\bin\Debug\testPLC.pdb
+F:\code\test\testPLC\obj\Debug\testPLC.exe
+F:\code\test\testPLC\obj\Debug\testPLC.pdb
