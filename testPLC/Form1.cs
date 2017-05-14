@@ -50,47 +50,9 @@ namespace testPLC
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            //string bar = "1S243-024-030-36-1-068-A804002015A003143";
-            string bar = "1234567890123";
-            string name = "图号:1S243-024-030-36-1-068-A\r\n合格证号：804002015A003143";
-            Image printImage = getPrintImage(bar, name, 800, 600);
-            PrintDocument pd = new PrintDocument();
-            pd.PrintPage += (sender1, e1) => {
-                using (Graphics g = e1.Graphics)
-                {
-                    g.DrawImage(printImage, 0, 0);
-                }
-            };
-            pd.Print();
-        }
-
-        private Image getPrintImage(string barcode, string name, int w, int h)
-        {
-            Image im = new Bitmap(w, h);
-            int fontSize = 15;
-            Font fon = new System.Drawing.Font("宋体", fontSize);
-            Code128 code = new Code128();
-            code.Height = 80;
-            code.Magnify = 2;
-            code.ValueFont = fon;
-            Image iim = code.GetCodeImage(barcode, Code128.Encode.Code128B);
-
-            Graphics g = Graphics.FromImage(im);
-            SolidBrush wbrush = new SolidBrush(Color.White);
-            g.FillRectangle(wbrush, 0, 0, w, h);
-            Pen pen = new Pen(Color.Black);
-            SolidBrush brush = new SolidBrush(Color.Black);
-            g.DrawRectangle(pen, 5, 5, w - 10, h - 10);
-
-            int length = name.Length/2;
-            int stringW = (length + 2) * fontSize;
-            int xs = (w - 10 - stringW) / 2;
-            int xy = (h - 10 - fontSize * 2 - iim.Height) / 2;
-            g.DrawString(name, fon, brush, xs, xy);
-            int xi = (w - 10 - iim.Width) / 2;
-            g.DrawImage(iim, xi, xy + fontSize * 2 * 2);
-
-            return im;
+            string bar = "1S243-024-030-36-1-068-A";
+            string name = "图号：1S243-024-030-36-1-068-A\r\n合格证号：804002015A003143\r\n名称：垫圈1\r\n数量：5\r\n";
+            Barcode.Print(bar, name);
         }
     }
 }
